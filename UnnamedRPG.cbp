@@ -21,7 +21,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
-					<Add library="C:\UnnamedRPG\lib\libzdll.a" />
+					<Add library="D:\UnnamedRPG\lib\libzdll.a" />
 					<Add directory="C:/SFML-2.1/lib" />
 				</Linker>
 			</Target>
@@ -41,17 +41,26 @@
 		<Compiler>
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
-			<Add directory="C:/SFML-2.1/include" />
-			<Add directory="C:/UnnamedRPG/include" />
+			<Add directory="D:/SFML-2.1/include" />
+			<Add directory="D:/UnnamedRPG/include" />
 		</Compiler>
 		<Linker>
 			<Add library="sfml-graphics" />
 			<Add library="sfml-window" />
 			<Add library="sfml-system" />
-			<Add directory="C:/SFML-2.1/lib" />
+			<Add directory="D:/SFML-2.1/lib" />
 		</Linker>
 		<Unit filename="include/Application.hpp" />
+		<Unit filename="include/ForEach.hpp" />
+		<Unit filename="include/ResourceHolder.hpp" />
+		<Unit filename="include/ResourceHolder.inl" />
+		<Unit filename="include/ResourceIdentifiers.hpp" />
+		<Unit filename="include/gamestates/State.hpp" />
+		<Unit filename="include/gamestates/StateIdentifiers.hpp" />
+		<Unit filename="include/gamestates/StateStack.hpp" />
 		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/gamestates/State.cpp" />
+		<Unit filename="src/gamestates/StateStack.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
