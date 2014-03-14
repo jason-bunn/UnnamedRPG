@@ -1,12 +1,36 @@
 
 #include <Application.hpp>
+#include <gamestates/SplashState.hpp>
+#include <gamestates/TitleState.hpp>
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.0f/60.0f);
 
 Application::Application()
 : mWindow(sf::VideoMode(550, 220), "Splash Window", sf::Style::None)
+, mTextures()
+, mFonts()
+, mStateStack(State::Context(mWindow, mTextures, mFonts))
 , mDisplayStats(false)
+, mStatisticsText()
+, mStatisticsUpdateTime()
+, mStatisticsNumFrames(0)
+
 {
+    mFonts.Load(Fonts::Main, "media/SF Square Head.ttf");
+    mFonts.Load(Fonts::InGame, "media/8bm.ttf");
+
+    //load splash image
+    mTextures.Load(Textures::SplashScreen, "media/images/Badlands.png");
+    mTextures.Load(Textures::TitleScreen, "media/images/MenuScreen.png");
+    //initialize framerate/debug text
+    mStatisticsText.setFont(mFonts.Get(Fonts::Main));
+    mStatisticsText.setColor(sf::Color::White);
+    mStatisticsText.setPosition(5.0f, 5.0f);
+    mStatisticsText.setCharacterSize(10u);
+
+    //register states and push the title state onto the stack
+    RegisterStates();
+    mStateStack.PushState(States::Splash);
 
 }
 
@@ -44,6 +68,7 @@ void Application::Run()
         }
 
         //update statistics
+        UpdateStatistics(dt);
 
         Render();
     }
@@ -55,7 +80,7 @@ void Application::ProcessInput()
     while(mWindow.pollEvent(event))
     {
         //send events to current state
-        //mStateStack.handleEvent(event);
+        mStateStack.HandleEvent(event);
 
         //close the window if event registered
         if(event.type == sf::Event::Closed)
@@ -68,7 +93,7 @@ void Application::ProcessInput()
 void Application::Update(sf::Time dt)
 {
     //send update to current state
-    //mStateStack.update(dt);
+    mStateStack.Update(dt);
 }
 
 void Application::Render()
@@ -76,12 +101,37 @@ void Application::Render()
     mWindow.clear();
 
     //send draw call to current state
-    //mStateStack.draw();
+    mStateStack.Draw();
     //set the view of the main window
     mWindow.setView(mWindow.getDefaultView());
 
-    //mWindow.draw(mStatisticsText);
+    if(mDisplayStats)
+        mWindow.draw(mStatisticsText);
 
     mWindow.display();
+}
+
+void Application::UpdateStatistics(sf::Time dt)
+{
+    mStatisticsUpdateTime += dt;
+    mStatisticsNumFrames +=1;
+    if(mStatisticsUpdateTime >= sf::seconds(1.0f))
+    {
+        mStatisticsText.setString("FPS: " + toString(mStatisticsNumFrames));
+
+        mStatisticsUpdateTime -= sf::seconds(1.0f);
+        mStatisticsNumFrames = 0;
+    }
+}
+
+void Application::RegisterStates()
+{
+    mStateStack.RegisterState<SplashState>(States::Splash);
+    mStateStack.RegisterState<TitleState>(States::Title);
+    //mStateStack.registerState<MenuState>(States::Menu);
+    //mStateStack.registerState<GameState>(States::Game);
+    //mStateStack.registerState<PauseState>(States::Pause);
+   // mStateStack.registerState<SettingsState>(States::Settings);
+   // mStateStack.registerState<GameOverState>(States::GameOver);
 }
 

@@ -1,8 +1,14 @@
 # depslib dependency file v1.0
-1394589094 source:d:\unnamedrpg\src\application.cpp
+1394764494 source:d:\unnamedrpg\src\application.cpp
 	<Application.hpp>
+	<gamestates/SplashState.hpp>
+	<gamestates/TitleState.hpp>
 
-1394589094 d:\unnamedrpg\include\application.hpp
+1394763549 d:\unnamedrpg\include\application.hpp
+	<Utility.hpp>
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.hpp>
+	<gamestates/StateStack.hpp>
 	<SFML/System/Time.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
 	<SFML/Graphics/Text.hpp>
@@ -229,4 +235,54 @@
 	<Application.hpp>
 	<stdexcept>
 	<iostream>
+
+1394764525 source:d:\unnamedrpg\src\gamestates\splashstate.cpp
+	<gamestates/SplashState.hpp>
+	<Utility.hpp>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1394761846 d:\unnamedrpg\include\gamestates\splashstate.hpp
+	<gamestates/State.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1388964542 d:\sfml-2.1\include\sfml\graphics\sprite.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1390631225 d:\unnamedrpg\include\utility.hpp
+	<sstream>
+	<Utility.inl>
+
+1390631294 d:\unnamedrpg\include\utility.inl
+
+1394590292 d:\unnamedrpg\include\resourceholder.hpp
+	<map>
+	<string>
+	<memory>
+	<stdexcept>
+	<cassert>
+	"ResourceHolder.inl"
+
+1394592829 d:\unnamedrpg\include\resourceholder.inl
+
+1394764461 source:d:\unnamedrpg\src\gamestates\titlestate.cpp
+	<gamestates/TitleState.hpp>
+	<Utility.hpp>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1394762547 d:\unnamedrpg\include\gamestates\titlestate.hpp
+	<gamestates/State.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1390631476 source:d:\unnamedrpg\src\utility.cpp
+	<Utility.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
 
