@@ -15,6 +15,7 @@ namespace Textures
     {
         SplashScreen,
         TitleScreen,
+        MenuScreen,
         Buttons,
         Particle,
         Player,

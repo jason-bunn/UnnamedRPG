@@ -2,6 +2,7 @@
 #include <Application.hpp>
 #include <gamestates/SplashState.hpp>
 #include <gamestates/TitleState.hpp>
+#include <gamestates/MenuState.hpp>
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.0f/60.0f);
 
@@ -22,6 +23,8 @@ Application::Application()
     //load splash image
     mTextures.Load(Textures::SplashScreen, "media/images/Badlands.png");
     mTextures.Load(Textures::TitleScreen, "media/images/MenuScreen.png");
+    mTextures.Load(Textures::MenuScreen, "media/images/MenuScreen.png");
+    mTextures.Load(Textures::Buttons, "media/images/NewButtons.png");
     //initialize framerate/debug text
     mStatisticsText.setFont(mFonts.Get(Fonts::Main));
     mStatisticsText.setColor(sf::Color::White);
@@ -64,7 +67,10 @@ void Application::Run()
             Update(TimePerFrame);
 
             //check if state stack is empty
-
+            if(mStateStack.IsEmpty())
+            {
+                mWindow.close();
+            }
         }
 
         //update statistics
@@ -128,10 +134,10 @@ void Application::RegisterStates()
 {
     mStateStack.RegisterState<SplashState>(States::Splash);
     mStateStack.RegisterState<TitleState>(States::Title);
-    //mStateStack.registerState<MenuState>(States::Menu);
-    //mStateStack.registerState<GameState>(States::Game);
-    //mStateStack.registerState<PauseState>(States::Pause);
-   // mStateStack.registerState<SettingsState>(States::Settings);
-   // mStateStack.registerState<GameOverState>(States::GameOver);
+    mStateStack.RegisterState<MenuState>(States::Menu);
+    //mStateStack.RegisterState<GameState>(States::Game);
+    //mStateStack.RegisterState<PauseState>(States::Pause);
+   // mStateStack.RegisterState<SettingsState>(States::Settings);
+   // mStateStack.RegisterState<GameOverState>(States::GameOver);
 }
 

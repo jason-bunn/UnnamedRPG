@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1394764494 source:d:\unnamedrpg\src\application.cpp
+1394854224 source:d:\unnamedrpg\src\application.cpp
 	<Application.hpp>
 	<gamestates/SplashState.hpp>
 	<gamestates/TitleState.hpp>
+	<gamestates/MenuState.hpp>
 
 1394763549 d:\unnamedrpg\include\application.hpp
 	<Utility.hpp>
@@ -210,7 +211,7 @@
 
 1394593085 d:\unnamedrpg\include\gamestates\stateidentifiers.hpp
 
-1394589888 d:\unnamedrpg\include\resourceidentifiers.hpp
+1394855236 d:\unnamedrpg\include\resourceidentifiers.hpp
 
 1394593910 d:\unnamedrpg\include\gamestates\statestack.hpp
 	<gamestates/State.hpp>
@@ -236,7 +237,7 @@
 	<stdexcept>
 	<iostream>
 
-1394764525 source:d:\unnamedrpg\src\gamestates\splashstate.cpp
+1394853337 source:d:\unnamedrpg\src\gamestates\splashstate.cpp
 	<gamestates/SplashState.hpp>
 	<Utility.hpp>
 	<ResourceHolder.hpp>
@@ -270,7 +271,7 @@
 
 1394592829 d:\unnamedrpg\include\resourceholder.inl
 
-1394764461 source:d:\unnamedrpg\src\gamestates\titlestate.cpp
+1394764842 source:d:\unnamedrpg\src\gamestates\titlestate.cpp
 	<gamestates/TitleState.hpp>
 	<Utility.hpp>
 	<ResourceHolder.hpp>
@@ -283,6 +284,59 @@
 
 1390631476 source:d:\unnamedrpg\src\utility.cpp
 	<Utility.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1394853868 source:d:\unnamedrpg\src\gui\button.cpp
+	<gui/Button.hpp>
+	<Utility.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1394853804 d:\unnamedrpg\include\gui\button.hpp
+	<gui/Component.hpp>
+	<ResourceIdentifiers.hpp>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<vector>
+	<string>
+	<memory>
+	<functional>
+
+1394853558 d:\unnamedrpg\include\gui\component.hpp
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<memory>
+
+1394853844 source:d:\unnamedrpg\src\gui\component.cpp
+	<gui/Component.hpp>
+
+1394853837 source:d:\unnamedrpg\src\gui\container.cpp
+	<gui/Container.hpp>
+	<ForEach.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1394853781 d:\unnamedrpg\include\gui\container.hpp
+	<gui/Component.hpp>
+	<vector>
+	<memory>
+
+1394855247 source:d:\unnamedrpg\src\gamestates\menustate.cpp
+	<gamestates/MenuState.hpp>
+	<gui/Button.hpp>
+	<Utility.hpp>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1394854312 d:\unnamedrpg\include\gamestates\menustate.hpp
+	<gamestates/State.hpp>
+	<gui/Container.hpp>
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Text.hpp>
 

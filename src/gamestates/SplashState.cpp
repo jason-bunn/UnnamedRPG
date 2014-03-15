@@ -28,7 +28,7 @@ void SplashState::Draw()
 bool SplashState::Update(sf::Time dt)
 {
     mTestLoadTime += dt;
-
+    //maybe use a threaded operation to load? if even necessary
     if(mTestLoadTime >= sf::seconds(2))
     {
         RequestStackPop();
